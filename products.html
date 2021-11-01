@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ashytit</title>
+    <link rel="icon" href="ashytit-logo.png" type="">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/js/uikit-icons.min.js"></script>
+    <script src="JS/jquery-3.5.1.min.js"></script>
+    <script src="JS/multislider.min.js"></script>
+</head>
+
+<body>
+    <nav class="navi navbar sticky-top navbar-light navbar-expand-lg ">
+        <a class="logo navbar-brand" href="#"><img src="./ashytit-logo.png" alt="Logo Ashytit" style="
+            width: 140px;
+            margin-top: 30px;
+            margin-left: 20px;
+        "></a>
+        <h1 class="ashytit-name">Ashytit</h1>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <!--<a class="foot nav-link" href="#">Footwear <span class="sr-only">(current)</span></a>-->
+                </li>
+                <li class="nav-item">
+                    <!--<a class="sum nav-link" href="summer.html">Summer Wear</a>-->
+                </li>
+
+                <li class="nav-item">
+                    <!--<a class="win nav-link" href="winter.html">Winter Wear</a>-->
+                </li>
+            </ul>
+
+            <form class="form-inline my-lg-0">
+                <div class="search-container mx-1">
+                    <form action="/search" method="get">
+                        <input class="search expandright" id="searchright" type="search" name="q" placeholder="Search">
+                        <label class="button searchbutton" for="searchright"><span class="mglass nav-icon">&#9906;</span></label>
+                    </form>
+                </div>
+                <a href="registration.html"><i class="bi bi-person-circle account-icon nav-icon mx-1"></i></a>&nbsp;
+                <a href="login.html"><i class="bi bi-box-arrow-in-right nav-icon mx-1"></i>&nbsp;</span></a>&nbsp;
+                <a href="wishlist.html"><i class="far fa-heart nav-icon mx-1"></i></span></a>&nbsp;
+
+                <div class="navbar-top">
+                    <div>
+                        <div class="shopping-cart">
+                            <div class="sum-prices">
+                                <!--Shopping cart logo-->
+                                <i class="cart-shop fas fa-shopping-cart shoppingCartButton nav-icon mx-1" style="margin-top: 0px; color:#A6192E" onclick="openCart()" id="open-cart"></i>
+                                <!--The total prices of products in the shopping cart -->
+                                <h6 id="sum-prices"></h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="close-cart" class="hide">
+                    <div class="producstOnCart">
+                        <div class="overlay"></div>
+                        <div class="top">
+                            <button id="closeButton" onclick="closeCart()">
+                <i class="fas fa-times-circle"></i>
+              </button>
+                            <h3>Cart</h3>
+                        </div>
+                        <ul id="buyItems">
+                            <h4 class="empty">Your shopping cart is empty</h4>
+                            <li class="buyItem">
+                                <img src="">
+                                <div>
+                                    <h5 class="white">Products Name</h5>
+                                    <h6 class="white">$199</h6>
+                                    <div>
+                                        <button class="button-minus" data-id="1">-</button>
+                                        <span class="countOfProduct">1</span>
+                                        <button class="button-plus" data-id="1">+</button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <!-- <button class="btn checkout hidden">Check out</button>-->
+                        <a href="checkout.html" class="btn checkout hidden">Checkout</a>
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+    </nav>
+    <div class="shopping-container">
+        <div class="row">
+            <!--filter Starts-->
+            <div class="col-1 col-sm-2">
+                <section>
+
+                    <h4>Filters</h4>
+
+                    <!-- Section: Condition -->
+                    <section class="mb-4">
+
+                        <h6 class="font-weight-bold mb-3">Condition</h6>
+
+                        <div class="form-check pl-0 mb-3">
+                            <input type="checkbox" class="form-check-input filled-in" id="new">
+                            <label class="form-check-label small text-uppercase card-link-secondary" for="new">New</label>
+                        </div>
+                        <div class="form-check pl-0 mb-3">
+                            <input type="checkbox" class="form-check-input filled-in" id="used">
+                            <label class="form-check-label small text-uppercase card-link-secondary" for="used">Used</label>
+                        </div>
+                        <div class="form-check pl-0 mb-3">
+                            <input type="checkbox" class="form-check-input filled-in" id="collectible">
+                            <label class="form-check-label small text-uppercase card-link-secondary" for="collectible">Collectible</label>
+                        </div>
+                        <div class="form-check pl-0 mb-3 pb-1">
+                            <input type="checkbox" class="form-check-input filled-in" id="renewed">
+                            <label class="form-check-label small text-uppercase card-link-secondary" for="renewed">Renewed</label>
+                        </div>
+
+                    </section>
+                    <!-- Section: Condition -->
+
+                    <!-- Section: Average -->
+                    <section class="mb-4 rating-section">
+
+                        <h6 class="font-weight-bold mb-3">Avg. Customer Review</h6>
+
+                        <a href="#!">
+                            <ul class="rating">
+                                <li>
+                                    <i class="fas fa-heart fa-sm text-primary mr-1 review-heart"></i>
+                                </li>
+                                <li>
+                                    <i class="fas fa-heart fa-sm text-primary mr-1 review-heart"></i>
+                                </li>
+                                <li>
+                                    <i class="fas fa-heart fa-sm text-primary mr-1 review-heart"></i>
+                                </li>
+                                <li>
+                                    <i class="fas fa-heart fa-sm text-primary mr-1 review-heart"></i>
+                                </li>
+                                <li>
+                                    <i class="far fa-heart fa-sm text-primary mr-1 review-heart"></i>
+                                </li>
+                                <li>
+                                    <p class="small text-uppercase card-link-secondary px-2"></p>
+                                </li>
+                            </ul>
+                        </a>
+                        <a href="#!">
+                            <ul class="rating">
+                                <li>
+                                    <i class="fas fa-heart fa-sm text-primary mr-1 review-heart"></i>
+                                </li>
+                                <li>
+                                    <i class="fas fa-heart fa-sm text-primary mr-1 review-heart"></i>
+                                </li>
+                                <li>
+                                    <i class="fas fa-heart fa-sm text-primary mr-1 review-heart"></i>
+                                </li>
+                                <li>
+                                    <i class="fas fa-heart fa-sm text-primary mr-1 review-heart"></i>
+                                </li>
+                                <li>
+                                    <i class="far fa-heart fa-sm text-primary mr-1 review-heart"></i>
+                                </li>
+                                <li>
+                                    <p class="small text-uppercase card-link-secondary px-2"></p>
+                                </li>
+                            </ul>
+                            <ul class="rating">
+                                <li>
+                                    <i class="fas fa-heart fa-sm text-primary mr-1 review-heart"></i>
+                                </li>
+                                <li>
+                                    <i class="fas fa-heart fa-sm text-primary mr-1 review-heart"></i>
+                                </li>
+                                <li>
+                                    <i class="fas fa-heart fa-sm text-primary mr-1 review-heart"></i>
+                                </li>
+                                <li>
+                                    <i class="fas fa-heart fa-sm text-primary mr-1 review-heart"></i>
+                                </li>
+                                <li>
+                                    <i class="far fa-heart fa-sm text-primary mr-1 review-heart"></i>
+                                </li>
+                                <li>
+                                    <p class="small text-uppercase card-link-secondary px-2"></p>
+                                </li>
+                            </ul>
+                        </a>
+                        <a href="#!">
+                            <ul class="rating">
+                                <li>
+                                    <i class="fas fa-heart fa-sm text-primary mr-1 review-heart"></i>
+                                </li>
+                                <li>
+                                    <i class="fas fa-heart fa-sm text-primary mr-1 review-heart"></i>
+                                </li>
+                                <li>
+                                    <i class="fas fa-heart fa-sm text-primary mr-1 review-heart"></i>
+                                </li>
+                                <li>
+                                    <i class="fas fa-heart fa-sm text-primary mr-1 review-heart"></i>
+                                </li>
+                                <li>
+                                    <i class="far fa-heart fa-sm text-primary mr-1 review-heart"></i>
+                                </li>
+                                <li>
+                                    <p class="small text-uppercase card-link-secondary px-2"></p>
+                                </li>
+                            </ul>
+                        </a>
+                        <a href="#!">
+                            <ul class="rating">
+                                <li>
+                                    <i class="fas fa-heart fa-sm text-primary mr-1 review-heart"></i>
+                                </li>
+                                <li>
+                                    <i class="fas fa-heart fa-sm text-primary mr-1 review-heart"></i>
+                                </li>
+                                <li>
+                                    <i class="fas fa-heart fa-sm text-primary mr-1 review-heart"></i>
+                                </li>
+                                <li>
+                                    <i class="fas fa-heart fa-sm text-primary mr-1 review-heart"></i>
+                                </li>
+                                <li>
+                                    <i class="far fa-heart fa-sm text-primary mr-1 review-heart"></i>
+                                </li>
+                                <li>
+                                    <p class="small text-uppercase card-link-secondary px-2"></p>
+                                </li>
+                            </ul>
+                        </a>
+
+                    </section>
+                    <!-- Section: Average -->
+
+                    <!-- Section: Price -->
+                    <section class="mb-4">
+
+                        <h6 class="font-weight-bold mb-3">Price</h6>
+
+                        <div class="form-check pl-0 mb-3">
+                            <input type="radio" class="form-check-input" id="under25" name="materialExampleRadios">
+                            <label class="form-check-label small text-uppercase card-link-secondary" for="under25">Under $25</label>
+                        </div>
+                        <div class="form-check pl-0 mb-3">
+                            <input type="radio" class="form-check-input" id="2550" name="materialExampleRadios">
+                            <label class="form-check-label small text-uppercase card-link-secondary" for="2550">$25 to $50</label>
+                        </div>
+                        <div class="form-check pl-0 mb-3">
+                            <input type="radio" class="form-check-input" id="50100" name="materialExampleRadios">
+                            <label class="form-check-label small text-uppercase card-link-secondary" for="50100">$50 to $100</label>
+                        </div>
+                        <div class="form-check pl-0 mb-3">
+                            <input type="radio" class="form-check-input" id="100200" name="materialExampleRadios">
+                            <label class="form-check-label small text-uppercase card-link-secondary" for="100200">$100 to $200</label>
+                        </div>
+                        <div class="form-check pl-0 mb-3">
+                            <input type="radio" class="form-check-input" id="200above" name="materialExampleRadios">
+                            <label class="form-check-label small text-uppercase card-link-secondary" for="200above">$200 & Above</label>
+                        </div>
+                        <form>
+                            <div class="d-flex align-items-center mt-4 pb-1">
+                                <div class="md-form md-outline my-0">
+                                    <input id="from" type="text" class="form-control mb-0">
+                                    <label for="form">$ Min</label>
+                                </div>
+                                <p class="px-2 mb-0 text-muted"> - </p>
+                                <div class="md-form md-outline my-0">
+                                    <input id="to" type="text" class="form-control mb-0">
+                                    <label for="to">$ Max</label>
+                                </div>
+                            </div>
+                        </form>
+
+                    </section>
+                    <!-- Section: Price -->
+
+                    <!-- Section: Price version 2 -->
+                    <section class="mb-4 price-section">
+
+                        <h6 class="font-weight-bold mb-3">Price</h6>
+
+                        <div class="slider-price d-flex align-items-center my-4">
+                            <span class="font-weight-normal small text-muted mr-2">$0</span>
+                            <form class="multi-range-field w-100 mb-1">
+                                <input id="multi" class="multi-range" type="range" />
+                            </form>
+                            <span class="font-weight-normal small text-muted ml-2">$100</span>
+                        </div>
+
+                    </section>
+                    <!-- Section: Price version 2 -->
+
+                    <!-- Section: Size -->
+                    <section class="mb-4">
+
+                        <h6 class="font-weight-bold mb-3">Size</h6>
+
+                        <div class="form-check pl-0 mb-3">
+                            <input type="checkbox" class="form-check-input filled-in" id="34">
+                            <label class="form-check-label small text-uppercase card-link-secondary" for="34">34</label>
+                        </div>
+                        <div class="form-check pl-0 mb-3">
+                            <input type="checkbox" class="form-check-input filled-in" id="36">
+                            <label class="form-check-label small text-uppercase card-link-secondary" for="36">36</label>
+                        </div>
+                        <div class="form-check pl-0 mb-3">
+                            <input type="checkbox" class="form-check-input filled-in" id="38">
+                            <label class="form-check-label small text-uppercase card-link-secondary" for="38">38</label>
+                        </div>
+                        <div class="form-check pl-0 mb-3">
+                            <input type="checkbox" class="form-check-input filled-in" id="40">
+                            <label class="form-check-label small text-uppercase card-link-secondary" for="40">40</label>
+                        </div>
+                        <a class="btn btn-link text-muted p-0" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    More
+                  </a>
+                        <div class="collapse pt-3" id="collapseExample">
+                            <div class="form-check pl-0 mb-3">
+                                <input type="checkbox" class="form-check-input filled-in" id="42">
+                                <label class="form-check-label small text-uppercase card-link-secondary" for="42">42</label>
+                            </div>
+                            <div class="form-check pl-0 mb-3">
+                                <input type="checkbox" class="form-check-input filled-in" id="44">
+                                <label class="form-check-label small text-uppercase card-link-secondary" for="44">44</label>
+                            </div>
+                            <div class="form-check pl-0 mb-3">
+                                <input type="checkbox" class="form-check-input filled-in" id="46">
+                                <label class="form-check-label small text-uppercase card-link-secondary" for="46">46</label>
+                            </div>
+                            <div class="form-check pl-0 mb-3">
+                                <input type="checkbox" class="form-check-input filled-in" id="50">
+                                <label class="form-check-label small text-uppercase card-link-secondary" for="50">50</label>
+                            </div>
+                        </div>
+
+                    </section>
+                    <!-- Section: Size -->
+
+                    <!-- Section: Color -->
+                    <section class="mb-4">
+
+                        <h6 class="font-weight-bold mb-3">Color</h6>
+
+                        <div class="btn-group btn-group-toggle btn-color-group d-block mt-n2 ml-n2" data-toggle="buttons">
+                            <label class="btn rounded-circle white border-inset-grey p-3 m-2">
+                      <input type="checkbox" autocomplete="off">
+                    </label>
+                            <label class="btn rounded-circle grey p-3 m-2">
+                      <input type="checkbox" autocomplete="off">
+                    </label>
+                            <label class="btn rounded-circle black p-3 m-2">
+                      <input type="checkbox" autocomplete="off">
+                    </label>
+                            <label class="btn rounded-circle green p-3 m-2">
+                      <input type="checkbox" autocomplete="off">
+                    </label>
+                            <label class="btn rounded-circle blue p-3 m-2">
+                      <input type="checkbox" autocomplete="off">
+                    </label>
+                            <label class="btn rounded-circle purple p-3 m-2">
+                      <input type="checkbox" autocomplete="off">
+                    </label>
+                            <label class="btn rounded-circle yellow p-3 m-2">
+                      <input type="checkbox" autocomplete="off">
+                    </label>
+                            <label class="btn rounded-circle indigo p-3 m-2">
+                      <input type="checkbox" checked autocomplete="off">
+                    </label>
+                            <label class="btn rounded-circle red p-3 m-2">
+                      <input type="checkbox" autocomplete="off">
+                    </label>
+                            <label class="btn rounded-circle orange p-3 m-2">
+                      <input type="checkbox" autocomplete="off">
+                    </label>
+                        </div>
+
+                    </section>
+                    <!-- Section: Color -->
+
+                </section>
+                <!-- Section: Filters -->
+
+            </div>
+            <!--filter Ends-->
+            <!--Items Start-->
+            <div class="col-11 col-sm-10">
+                <div class="flex-container">
+                    <div class="flex-item mx-3 my-3">
+                        <div class="product-under">
+                            <div class="product-image">
+                                <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+
+                                    <img src="sneakers1.jpg" alt="" />
+                                    <img class="uk-transition-scale-up uk-position-cover" src="casual1.jpg" alt="" />
+                                </div>
+
+                                <h3 class="productName">Sneakers</h3>
+
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                </p>
+                                <h6 class="price">
+                                    $<span class="priceValue">999</span>&nbsp;&nbsp;
+                                    <span class="addToCart" data-product-id="1">
+                                        <i class="fas fa-cart-plus" style="font-size: 25px; margin-left:170px;"></i>&nbsp;</span>
+                                </h6>
+                                <a href="sneakers.html">Check Details</a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-item mx-3 my-3">
+                        <div class="product-under">
+                            <div class="product-image">
+                                <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+
+                                    <img src="formal1.jpg" alt="" />
+                                    <img class="uk-transition-scale-up uk-position-cover" src="formal01.jpg" alt="" />
+                                </div>
+                                <h3 class="productName">Formal Shoes</h3>
+
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                </p>
+                                <h6 class="price">
+                                    $<span class="priceValue">999</span>&nbsp;&nbsp;
+                                    <span class="addToCart" data-product-id="2">
+                                        <i class="fas fa-cart-plus" style="font-size: 25px; margin-left:170px;"></i>&nbsp;</span>
+                                </h6>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-item mx-3 my-3">
+                        <div class="product-under">
+                            <div class="product-image">
+
+                                <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+
+                                    <img src="loafers03.jpg" alt="" />
+                                    <img class="uk-transition-scale-up uk-position-cover" src="loaferupt.jpg" alt="" />
+                                </div>
+
+                                <h3 class="productName">Loafers</h3>
+
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                </p>
+                                <h6 class="price">
+                                    $<span class="priceValue">999</span>&nbsp;&nbsp;
+                                    <span class="addToCart" data-product-id="3">
+                                        <i class="fas fa-cart-plus" style="font-size: 25px; margin-left:170px;"></i>&nbsp;</span>
+                                </h6>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-item mx-3 my-3">
+                        <div class="product-under">
+                            <div class="product-image">
+
+                                <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+
+                                    <img src="loafers03.jpg" alt="" />
+                                    <img class="uk-transition-scale-up uk-position-cover" src="loaferupt.jpg" alt="" />
+                                </div>
+
+                                <h3 class="productName">Cut Shoes</h3>
+
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                </p>
+                                <h6 class="price">
+                                    $<span class="priceValue">999</span>&nbsp;&nbsp;
+                                    <span class="addToCart" data-product-id="4">
+                                        <i class="fas fa-cart-plus" style="font-size: 25px; margin-left:170px;"></i>&nbsp;</span>
+                                </h6>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="flex-container">
+                    <div class="flex-item mx-3 my-3">
+                        <div class="product-under">
+                            <div class="product-image">
+                                <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+
+                                    <img src="sneakers1.jpg" alt="" />
+                                    <img class="uk-transition-scale-up uk-position-cover" src="casual1.jpg" alt="" />
+                                </div>
+
+                                <h3 class="productName">Sneakers Style</h3>
+
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                </p>
+                                <h6 class="price">
+                                    $<span class="priceValue">999</span>&nbsp;&nbsp;
+                                    <span class="addToCart" data-product-id="6">
+                                        <i class="fas fa-cart-plus" style="font-size: 25px; margin-left:170px;"></i>&nbsp;</span>
+                                </h6>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-item mx-3 my-3">
+                        <div class="product-under">
+                            <div class="product-image">
+                                <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+
+                                    <img src="formal1.jpg" alt="" />
+                                    <img class="uk-transition-scale-up uk-position-cover" src="formal01.jpg" alt="" />
+                                </div>
+                                <h3 class="productName">Formals Shoes</h3>
+
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                </p>
+                                <h6 class="price">
+                                    $<span class="priceValue">999</span>&nbsp;&nbsp;
+                                    <span class="addToCart" data-product-id="7">
+                                        <i class="fas fa-cart-plus" style="font-size: 25px; margin-left:170px;"></i>&nbsp;</span>
+                                </h6>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-item mx-3 my-3">
+                        <div class="product-under">
+                            <div class="product-image">
+
+                                <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+
+                                    <img src="loafers03.jpg" alt="" />
+                                    <img class="uk-transition-scale-up uk-position-cover" src="loaferupt.jpg" alt="" />
+                                </div>
+                                <h3 class="productName">Loafers Style</h3>
+
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                </p>
+                                <h6 class="price">
+                                    $<span class="priceValue">999</span>&nbsp;&nbsp;
+                                    <span class="addToCart" data-product-id="8">
+                                        <i class="fas fa-cart-plus" style="font-size: 25px; margin-left:170px;"></i>&nbsp;</span>
+                                </h6>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-item mx-3 my-3">
+                        <div class="product-under">
+                            <div class="product-image">
+
+                                <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+
+                                    <img src="loafers03.jpg" alt="" />
+                                    <img class="uk-transition-scale-up uk-position-cover" src="loaferupt.jpg" alt="" />
+                                </div>
+                                <h3 class="productName">Cut Shoess</h3>
+
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                </p>
+                                <h6 class="price">
+                                    $<span class="priceValue">999</span>&nbsp;&nbsp;
+                                    <span class="addToCart" data-product-id="9">
+                                        <i class="fas fa-cart-plus" style="font-size: 25px; margin-left:170px;"></i>&nbsp;</span>
+                                </h6>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Items Ends-->
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="main.js"></script>
